@@ -5,7 +5,7 @@
   (if diff
     (cond (map? state) (into {}
                              (for [key (union (set (keys state)) (set (keys diff)))]
-                               [key (let [val1 (state key)
+                               [key (let [val1 (key state)
                                           val2 (diff key)]
                                       (cond (and val1 val2) (patch val1 val2)
                                             (contains? diff key) val2
